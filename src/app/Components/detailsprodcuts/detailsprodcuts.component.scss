@@ -1,0 +1,110 @@
+
+  
+  .details-title {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: #757575;
+  }
+  
+  .buttons .block {
+    margin-right: 5px;
+  }
+  
+  .quantity input {
+    border-radius: 0;
+    height: 40px;
+  
+  }
+  
+  
+  .custom-btn {
+    text-transform: capitalize;
+    background-color: #0093c4;
+    color: white;
+    width: 150px;
+    height: 40px;
+    border-radius: 0;
+  }
+  
+  .custom-btn:hover {
+    background-color: #0093c4 !important;
+    font-size: 18px;
+    color: white !important;
+  }
+  
+  .similar-product img {
+    height: 400px;
+  }
+  
+  .similar-product {
+    text-align: left;
+  }
+  
+  .similar-product .title {
+    margin: 17px 0px 4px 0px;
+  }
+  
+  .similar-product .price {
+    font-weight: bold;
+  }
+  
+  .questions .icon i {
+    font-size: 2rem;
+  }
+  
+  .questions-icon {
+    font-size: 2rem;
+    color: #0093c4;
+  }
+  
+  
+  /* Small devices (landscape phones, less than 768px) */
+  @media (max-width: 767.98px) {
+  
+    /* Make preview images responsive  */
+    .previews img {
+      width: 100%;
+      height: auto;
+    }
+  
+  }
+  
+  // reviews starts
+  
+ 
+  
+  .rating {
+    margin-top: 40px;
+    border: none;
+  }
+  
+  .rating>label {
+    color: #90A0A3;
+    float: right;
+  }
+  
+  .rating>label:before {
+    margin: 5px;
+    font-size: 2em;
+    font-family: FontAwesome;
+    content: "\f005";
+    display: inline-block;
+  }
+  
+  .rating>input {
+    display: none;
+  }
+  
+  .rating>input:checked~label,
+  .rating:not(:checked)>label:hover,
+  .rating:not(:checked)>label:hover~label {
+    color: #F79426;
+  }
+  
+  .rating>input:checked+label:hover,
+  .rating>input:checked~label:hover,
+  .rating>label:hover~input:checked~label,
+  .rating>input:checked~label:hover~label {
+    color: #FECE31;
+  }

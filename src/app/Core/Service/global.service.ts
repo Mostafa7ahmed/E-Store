@@ -4,23 +4,12 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class GlobalService {
-  
   baseUrl: string = 'http://localhost:3400';
   authRoute: string = '/api/v1/auth';
-  categoryRoute:string = '/api/v1/categories'
-  subCategoryRoute:string = '/api/v1/subcategory'
-  productRoute: string = '/api/v1/product';
-  userRoute: string = '/api/v1/users'
-  cartRoute:string= '/api/v1/carts'
-  couponsRoute:string = '/api/v1/coupon'
-  cartImage: string =` ${this.baseUrl}/carts/`;
-  ordersRoute: string = '/api/v1/orders';
-  wishlistRoute: string = '/api/v1/wishlist';
-  productImage: string = `${this.baseUrl}/products/`;
-  usersImage: string =` ${this.baseUrl}/images/users/`;
-  categoryImage: string = `${this.baseUrl}/categories/`;
+  productsRoute: string = '/api/v1/products';
+  reviewsRoute: string = '/api/v1/reviews';
+  productsImage: string = `${this.baseUrl}/images/products/`;
+  usersImage: string = `${this.baseUrl}/images/users/`;
   apiKey: string = 'secret123';
-
-  
   constructor() { }
 }

@@ -61,7 +61,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.imgDomain = this._globalService.productImage;
+    this.imgDomain = this._globalService.productsImage;
     this.loadProducts();
   }
 

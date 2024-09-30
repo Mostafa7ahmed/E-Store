@@ -16,6 +16,9 @@ export const routes: Routes = [
 
     ]
   },
+  { path: 'myReviews', title: 'Reviews', loadComponent: () => import('./Components/reviews/reviews.component').then(m => m.ReviewsComponent) },
+
+
   { path: '**', title: '404 Not Found', component: NotFoundComponent },
 
     

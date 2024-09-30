@@ -9,10 +9,12 @@ import { Observable } from 'rxjs';
 export class ProductsService {
   private baseUrl: string = '';
   private productsRoute: string = '';
+  productImages: string = ``
   apiKey: string = ``
   constructor(private _GlobalService: GlobalService, private _HttpClient: HttpClient) {
     this.baseUrl = this._GlobalService.baseUrl;
-    this.productsRoute = this._GlobalService.productRoute;
+    this.productsRoute = this._GlobalService.productsRoute;
+    this.productImages = this._GlobalService.productsImage;
     this.apiKey = this._GlobalService.apiKey;
   }
 

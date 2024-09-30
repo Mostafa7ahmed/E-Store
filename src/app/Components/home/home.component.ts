@@ -42,7 +42,7 @@ export class HomeComponent {
 
 
   ngOnInit(): void {
-    this.imgDomain = this._GlobalService.productImage;
+    this.imgDomain = this._GlobalService.productsImage;
     this.loadProducts();
   }
 

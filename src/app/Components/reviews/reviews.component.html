@@ -1,1 +1,44 @@
-<p>reviews works!</p>
+<div class="container">
+    <h2 class="text-center my-5">My Reviews</h2>
+    <hr class="my-3">
+    <table class="w-100">
+      <thead>
+        <tr class="border-bottom">
+          <th>product</th>
+          <th>Review</th>
+          <th>Rating</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        @for(review of reviews; track review._id){
+        <tr class="m-5 border-bottom">
+          <td><img class="mx-3" width="50px" [src]="productImage+review?.product?.cover"
+              alt="review?.product?.name">{{review?.product?.name}}</td>
+          <td>{{review?.comment}}</td>
+          <td>{{review?.rate}}</td>
+          <td>
+            <a class="btn btn-primary btn-sm rounded-3 mx-3">Update</a>
+            <button (click)="deleteReview(review._id!)" class="btn btn-danger btn-sm rounded-3">Delete</button>
+          </td>
+        </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+  
+  <div class="container m-auto mt-5 w-25">
+    <ul class="pagination">
+      <li (click)="changePage(1)" class="page-item"><button class="page-link">First</button></li>
+      @if(pagination.prev){
+      <li (click)="changePage(pagination.prev)" class="page-item"><button class="page-link">{{pagination.prev}}</button>
+      </li>
+      }
+      <li class="page-item"><button disabled class="page-link">{{pagination.currentPage}}</button></li>
+      @if(pagination.next){
+      <li (click)="changePage(pagination.next)" class="page-item"><button class="page-link">{{pagination.next}}</button>
+      </li>
+      }
+      <li (click)="changePage(pagination.totalPages!)" class="page-item"><button class="page-link">Last</button></li>
+    </ul>
+  </div>

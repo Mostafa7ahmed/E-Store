@@ -1,17 +1,16 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { GlobalService } from './global.service';
-import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable } from 'rxjs';
 import { Login, ResetPassword, SendMail, Signup, VerifyCode } from '../interfaces/auth';
-import { Router } from '@angular/router';
-import  Cookies  from 'js-cookie';
+import { BehaviorSubject, Observable } from 'rxjs';
+import Cookies from 'js-cookie'
 import { jwtDecode } from 'jwt-decode';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-
   private baseUrl: string = '';
   private authRoute: string = '';
   private apiKey: string = '';
@@ -25,7 +24,7 @@ export class UserService {
       this.saveCurrentUser();
     }
   };
-  
+
   saveCurrentUser() {
     const token = localStorage.getItem('user');
     if (token) {

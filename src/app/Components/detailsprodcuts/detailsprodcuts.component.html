@@ -51,4 +51,55 @@
 
     </div>
 
+
+    <div class="Reviews m-5 pt-4">
+        <h3>Customer Reviews</h3>
+
+
+       
+        <div name="reviews">
+            <form [formGroup]="reviewForm" (ngSubmit)="addReview(product._id!,reviewForm)">
+              <div class="form-floating">
+                <textarea class="form-control" formControlName="comment" placeholder="Leave a comment here"
+                  id="floatingTextarea"></textarea>
+                <label for="floatingTextarea">Review</label>
+              </div>
+              <div class="mt-3 text-danger">
+                @if(reviewError!==''){ <label for="">{{reviewError}}</label> }
+              </div>
+              <div class="rating">
+                <input type="radio" formControlName="rate" id="star5" name="rate" value="5" />
+                <label class="star" for="star5" title="Awesome" aria-hidden="true"></label>
+                <input type="radio" formControlName="rate" id="star4" name="rate" value="4" />
+                <label class="star" for="star4" title="Great" aria-hidden="true"></label>
+                <input type="radio" formControlName="rate" id="star3" name="rate" value="3" />
+                <label class="star" for="star3" title="Very good" aria-hidden="true"></label>
+                <input type="radio" formControlName="rate" id="star2" name="rate" value="2" />
+                <label class="star" for="star2" title="Good" aria-hidden="true"></label>
+                <input type="radio" formControlName="rate" id="star1" name="rate" value="1" />
+                <label class="star" for="star1" title="Bad" aria-hidden="true"></label>
+                <button [disabled]="reviewForm.invalid" class="btn btn-success shadow mt-2 mx-3">Add Review</button>
+              </div>
+            </form>
+          </div>
+
+
+
+
+          <div class="container">
+            <hr class="my-3">
+            <h2 class="text-center">Product Reviews</h2>
+            <hr class="my-3">
+            @for(review of product.reviews; track review._id){
+            <div>
+              <h4>{{review?.user?.name}}</h4>
+              <p>{{review?.comment}} - {{review?.rate}}&star;</p>
+              <p>{{review?.createdAt|date}}</p>
+              <hr class="my-4">
+            </div>
+            }
+          </div>
+    </div>
+
+
 </div>
