@@ -1,0 +1,25 @@
+.banner {
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+  }
+  .banner h2 {
+    font-size: 48px;
+    font-weight: 700;
+  }
+  
+  @media (max-width: 500px) {
+    .banner {
+       height: 20vh;
+    }
+    .banner h2 {
+      font-size: 35px;
+      font-weight: 700;
+    }
+  }
+  

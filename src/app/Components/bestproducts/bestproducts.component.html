@@ -1,0 +1,40 @@
+
+<div class="row  my-5 bestProdcuts">
+    @if(isloading){
+       
+       <div class="skeleton-container">
+           <div class="skeleton-card cardDaprt" *ngFor="let _ of [1, 2, 3, 4 , 5,6 , 8 , 9]"></div>
+       </div>
+    }
+    @else {
+       @for(product of products; track product._id){
+
+       <div class="cardprodcut position-relative  m-2" style="width: 18rem; padding: 0;">
+           <img [src]="imgDomain+product.cover" [alt]="product.name">
+            <span class="position-absolute offer">NEW</span>
+
+            <button class="btn btn-dark d-block w-75 position-absolute ">Add Cart</button>
+
+           <div class="card-body mt-5  pb-2">
+               <h5 class="card-title fw-bolder">{{product?.name |slice :0 :20}}</h5>
+               <p class="card-text my-4">price : {{product?.price|currency:'EUR'}}</p>
+                <div class="view d-flex align-content-center justify-content-between">
+                   <p class="card-text">
+                       {{product?.ratingAverage|number:'1.1-1'}}<i class="fa-solid fa-star mx-3" style="color: #FFD43B;"></i></p>    
+               
+                       <a [routerLink]="['/products' , product._id]"> <i class="fa-solid fa-eye"></i></a>
+               </div>
+
+
+
+
+               
+               
+           </div>
+
+
+       </div>
+    }
+   }
+</div>
+

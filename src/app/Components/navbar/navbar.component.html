@@ -1,1 +1,55 @@
-<p>navbar works!</p>
+<div class="containerEcommerce">
+    <nav>
+        <div class="logo">
+            <h4>3legant</h4>
+        </div>
+
+        <ul class="list d-flex align-items-center gap-5 m-0">
+            <li class="nav-item">
+                <a class="nav-link" routerLink='home' routerLinkActive="active"
+                    ariaCurrentWhenActive="page">Home</a>
+            </li>
+
+
+
+            <li class="nav-item">
+                <a class="nav-link" routerLink='products' routerLinkActive="active"
+                    ariaCurrentWhenActive="page">Products</a>
+            </li>
+
+
+            <li><a class="nav-link" routerLink='shop' routerLinkActive="active">Shop</a></li>
+            <li><a class="nav-link" routerLink='Contact' routerLinkActive="active">Contact Us</a></li>
+        </ul>
+
+        <div class="icons d-flex align-items-center gap-3 position-relative">
+
+            <!-- Add pointer cursor for better UX -->
+            <i class="fa fa-user" aria-hidden="true" (click)="toggleSettings($event)" style="cursor: pointer;"></i>
+
+            <!-- Use *ngIf to conditionally render the settings div -->
+
+            @if(showSettings){
+            <div class="settings p-4">
+                @if(!isLogin){
+                <ul>
+                    <li><a routerLink="/signIn">Sign in</a></li>
+                    <li><a routerLink="/regtser">Sign UP</a></li>
+                </ul>
+                }
+                @else(){
+                <ul>
+                    <li (click)="logout()">log Out</li>
+                    <li>Profile</li>
+                </ul>
+                }
+
+
+            </div>
+            }
+
+            <i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
+
+        </div>
+    </nav>
+</div>

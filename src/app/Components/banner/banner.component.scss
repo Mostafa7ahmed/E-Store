@@ -1,0 +1,19 @@
+
+
+.carousel-indicators button{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+}
+
+.carousel-indicators .active{
+    width: 40px;
+    height: 10px;
+    border-radius: 15px;
+  transition: 1s width  ease-in;
+    
+}

@@ -13,21 +13,76 @@
 
             <div class="mt-4 Sign">
                 <h3 class="my-3">Sign Up</h3>
-                <p class="text-body-tertiary ">Already have an account? <a href="" class="route">Sign in</a></p>
+                <p class="text-body-tertiary ">Already have an account? <a routerLink="/signIn" class="route">Sign in</a></p>
             </div>
 
-
-            <div class="mb-3">
-                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-            </div>
-            <div class="mb-3">
-                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-            </div>
+            <form (ngSubmit)="Signup(signupFormData) "  [formGroup]="signupFormData">
 
 
-            <div class="mb-3">
-                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-            </div>
+                <div class="mb-3">
+                    <input type="text" class="inputControl" name="name"   formControlName="name" id="name"  placeholder="Enter Your User Name ">
+
+                    <div *ngIf="signupFormData.get('name')?.errors && signupFormData.get('name')?.touched" class="text-danger mt-1">
+                        <span *ngIf="signupFormData.get('name')?.errors?.['required']" class="m-0"> Name is required</span>
+                        <span *ngIf="signupFormData.get('name')?.errors?.['minlength']" class="m-0">The name must be at least 3 characters long</span>
+                        <span *ngIf="signupFormData.get('name')?.errors?.['maxlength']" class="m-0">The name must be at most 40 characters long</span>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <input type="email" class="inputControl"  name ="email" id="email" formControlName="email"   placeholder="Enter Your  Email">
+
+                    <div *ngIf="signupFormData.get('email')?.errors && signupFormData.get('email')?.touched" class="text-danger mt-1">
+                        <span *ngIf="signupFormData.get('email')?.errors?.['required']" class="m-0"> Email is required</span>
+                        <span *ngIf="signupFormData.get('email')?.errors?.['email']" class="m-0">Invalid email address</span>
+                    </div>
+                </div>
+    
+                <div class="mb-3">
+                    <input type="tel" class="inputControl"  name ="phone" id="phone" formControlName="phone"    placeholder="Enter Your  phone Number">
+                    <div *ngIf="signupFormData.get('phone')?.errors && signupFormData.get('phone')?.touched" class="text-danger mt-1">
+                        <span *ngIf="signupFormData.get('phone')?.errors?.['required']">Phone number is required</span>
+                        <span *ngIf="signupFormData.get('phone')?.errors?.['pattern']">Please enter a valid phone number</span>
+                    </div>
+                </div>
+    
+                <div class="mb-3 position-relative ">
+                    <input [type]="passwordFieldType ? 'password' : 'text'"  name ="password" id="password" formControlName="password"   class="inputControl"  placeholder="Enter Your  Password">
+                  <i (click)="togglePasswordVisibility()" role="button" class="fa-solid p   layOut"
+                    [class.fa-eye-slash]="!passwordFieldType" [class.fa-eye]="passwordFieldType"></i>
+
+                    <div *ngIf="signupFormData.get('password')?.errors && signupFormData.get('password')?.touched" class="text-danger m-0">
+                        <span *ngIf="signupFormData.get('password')?.errors?.['required']" class="m-0">Password  is required</span>
+                        <span *ngIf="signupFormData.get('password')?.errors?.['required']" class="mb-0">Password is required</span>
+                        <span *ngIf="signupFormData.get('password')?.errors?.['pattern']" class="mb-0">Weak password (e.g., Mostafa &#64;123)</span>
+                    </div>
+                </div>
+    
+                <div class="mb-3 position-relative ">
+                    <input [type]="rePasswordFieldType ? 'password' : 'text'" class="inputControl"  formControlName="confirmPassword"  placeholder="Enter Your  RePassword">
+                  <i (click)="toggleRePasswordVisibility()" role="button" class="fa-solid p   layOut"
+                    [class.fa-eye-slash]="!rePasswordFieldType" [class.fa-eye]="rePasswordFieldType"></i>
+                    <div *ngIf="signupFormData.get('confirmPassword')?.errors && signupFormData.get('confirmPassword')?.touched" class="text-danger m-0">
+                        <span *ngIf="signupFormData.get('confirmPassword')?.errors?.['required']" class="m-0">Password confirmation is required</span>
+                        <span *ngIf="signupFormData.get('confirmPassword')?.errors?.['required']" class="mb-0">Password is required</span>
+                        <span *ngIf="signupFormData.get('confirmPassword')?.errors?.['pattern']" class="mb-0">Weak password (e.g., Mostafa &#64;123)</span>
+                    </div>
+                </div>
+
+
+
+                
+                <button class="btnSign btn btn-dark" [disabled]="!signupFormData.valid || isloading" type="submit">
+                    <span *ngIf="!isloading"> Sign Up</span>
+                    <span *ngIf="isloading" class="spinner-border spinner-border-sm" role="status"
+                        aria-hidden="true"></span>
+                    <span *ngIf="isloading"> Sign Up Load...</span>
+                </button>
+    
+            </form>
+
+
+     
+
 
 
 

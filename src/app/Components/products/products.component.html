@@ -1,0 +1,59 @@
+<div class="p-2">
+
+    <app-bannerpage   [backgroundImage]="bannerImage" [TitlePage]="titlePage"></app-bannerpage>
+
+
+    <div class="option my-5 d-flex  justify-content-between">
+
+        <div class="search">
+            <input (keyup)="searchProducts(search.value)" #search class="form-control mx-2" type="search" placeholder="Search"
+            aria-label="Search">
+        
+        </div>
+
+
+         
+        <div class="choseSelect d-flex align-content-center gap-4">
+            <div>
+                <select class="form-select mx-2" aria-label="Select Category">
+                    <option value="">Select Category</option>
+                    <option *ngFor="let subcategory of products" [value]="subcategory.subcategory">{{ subcategory.subcategory?.name }}</option>
+                  </select>
+
+              </div>
+
+
+              <div>
+                <select class="form-select mx-2" aria-label="Default select example">
+                  <option selected>Select Category</option>
+                  <option *ngFor="let category of products" [value]="category.category">{{ category.category?.name }}</option>
+
+                </select>
+              </div>
+         </div>
+
+
+
+   </div>
+ 
+
+
+
+
+    <app-bestproducts [products]="products" [imgDomain]="imgDomain" [isloading]="isloading"></app-bestproducts>
+  <div class="container m-auto mt-5 w-25">
+    <ul class="pagination">
+      <li (click)="changePage(1)" class="page-item"><button class="page-link">First</button></li>
+      @if(pagination.prev){
+      <li (click)="changePage(pagination.prev)" class="page-item"><button class="page-link">{{pagination.prev}}</button>
+      </li>
+      }
+      <li class="page-item"><button disabled class="page-link">{{pagination.currentPage}}</button></li>
+      @if(pagination.next){
+      <li (click)="changePage(pagination.next)" class="page-item"><button class="page-link">{{pagination.next}}</button>
+      </li>
+      }
+      <li (click)="changePage(pagination.totalPages!)" class="page-item"><button class="page-link">Last</button></li>
+    </ul>
+  </div>
+</div>

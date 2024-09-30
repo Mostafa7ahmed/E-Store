@@ -1,0 +1,54 @@
+<div class="details p-2">
+
+    <div class="infodetails d-flex gap-3 ">
+
+        <div class="imagesdetails">
+            <img  [src]="imgDomain+product.cover" alt="" class="w-100 ">
+            <div class="colection d-flex align-content-center flex-wrap gap-3">
+        
+                @for(image of product.images; track image){
+                    <img class="mt-4 " [src]="imgDomain+image" [alt]="product.name" width="100px">
+
+                    }
+
+             
+
+            </div>
+
+        </div>
+        <div class="contentdetails p-3">
+            <p class="card-text my-5">{{product.ratingAverage|number:'1.1-1'}}<i class="fa-solid fa-star mx-3" style="color: #FFD43B;"></i>
+                <h4 class="card-text my-2 fw-bolder" >{{product.subcategory?.name}}</h4>   
+
+             <h3 class="card-text my-2 fw-bolder" >{{product.name}}</h3>   
+             <p class="my-4">{{product.description}}</p>
+
+             <p class="fw-bold">{{product.price|currency}} </p>
+
+             <hr>
+             <div class="offer py-4">
+                <p>Offer expires in:</p>
+
+                <app-timeoffer></app-timeoffer>
+             </div>
+           <hr>
+             <div class="btns  mt-4 d-flex  align-content-center justify-content-lg-between ">
+                <button class="border-0 p-3 px-5 rounded" >Wishlist <i class="fa fa-heart ms-2" aria-hidden="true"></i></button>
+
+                <button class="border-0 p-3 px-5 rounded btn btn-dark" >Add To Cart <i class="fa fa-cart-plus ms-2" aria-hidden="true"></i></button>
+             </div>
+
+
+
+
+             
+
+
+
+        </div>
+    
+
+
+    </div>
+
+</div>

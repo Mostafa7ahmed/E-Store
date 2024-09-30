@@ -1,1 +1,50 @@
-<p>login works!</p>
+<div class=" Resiter">
+
+    <div class="cover">
+        <img src="coverAuth.png" alt="paste Image">
+
+    </div>
+    <div class="Data">
+
+        <div class="mt-4 Sign">
+            <h3 class="my-3">Sign In</h3>
+            <p class="text-body-tertiary ">You Need Create  an account? <a routerLink="/regtser" class="route">Sign UP</a></p>
+        </div>
+
+        <form (ngSubmit)="SignIn(signInFormData) "  [formGroup]="signInFormData">
+
+            <div class="mb-3">
+                <input type="text" class="inputControl"  name ="email" id="email" formControlName="email"   placeholder="Enter Your  email">
+                <div *ngIf="signInFormData.get('email')?.errors && signInFormData.get('email')?.touched" class="text-danger mt-1">
+                    <span *ngIf="signInFormData.get('email')?.errors?.['required']" class="m-0"> Email is required</span>
+                    <span *ngIf="signInFormData.get('email')?.errors?.['email']" class="m-0">Invalid email address</span>
+                </div>
+            </div>
+
+            <div class="mb-3 position-relative ">
+                <input [type]="passwordFieldType ? 'password' : 'text'"  name ="password" id="password" formControlName="password"   class="inputControl"  placeholder="Enter Your  Password">
+              <i (click)="togglePasswordVisibility()" role="button" class="fa-solid p   layOut"
+                [class.fa-eye-slash]="!passwordFieldType" [class.fa-eye]="passwordFieldType"></i>
+
+                <div *ngIf="signInFormData.get('password')?.errors && signInFormData.get('password')?.touched" class="text-danger m-0">
+                    <span *ngIf="signInFormData.get('password')?.errors?.['required']" class="m-0">Password  is required</span>
+                    <span *ngIf="signInFormData.get('password')?.errors?.['required']" class="mb-0">Password is required</span>
+                    <span *ngIf="signInFormData.get('password')?.errors?.['pattern']" class="mb-0">Weak password (e.g., Mostafa &#64;123)</span>
+                </div>
+            </div>
+            <!--  -->
+
+
+            <p class="text-primary "> <a routerLink="/forgetPassword" class="route">You Forget Password ? </a></p>
+
+
+            <button class="btnSign btn btn-dark" [disabled]="!signInFormData.valid || isloading" type="submit">
+                <span *ngIf="!isloading"> Sign In</span>
+                <span *ngIf="isloading" class="spinner-border spinner-border-sm" role="status"
+                    aria-hidden="true"></span>
+                <span *ngIf="isloading"> Sign In Load...</span>
+            </button>
+
+        </form>
+    </div>
+</div>

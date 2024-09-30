@@ -1,1 +1,83 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+    font-family: "Tajawal", system-ui;
+    font-weight: 400;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    &::-webkit-scrollbar {
+      height: 10px;
+      width: 10px;
+    }
+  
+    &::-webkit-scrollbar-track {
+      background-color: #dfe9eb;
+    }
+  
+    &::-webkit-scrollbar-track:hover {
+      background-color: #b8c0c2;
+    }
+  
+    &::-webkit-scrollbar-track:active {
+      background-color: #b8c0c2;
+    }
+  
+    &::-webkit-scrollbar-thumb {
+      border-radius: 5px;
+      background-color: #141413;
+    }
+  
+    &::-webkit-scrollbar-thumb:hover {
+      background-color: #181816;
+    }
+  
+    &::-webkit-scrollbar-thumb:active {
+      background-color: #1a1814;
+    }
+  }
+  
+  ul {
+    list-style: none;
+  }
+
+  .containerEcommerce{
+    padding: 0px 30px;
+}
+  
+  a {
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .custom-toast-zindex {
+    z-index: 122229999 !important;
+  }
+  
+  // skeleton
+  /* Skeleton Loader Styles */
+  .skeleton-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  
+  .skeleton-card {
+    width: 320px;
+    height: 350px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    margin: 0 10px;
+    border-radius: 8px;
+    animation: shimmer 1.5s infinite;
+  }
+  
+  @keyframes shimmer {
+    0% {
+      background-position: -300px 0;
+    }
+  
+    100% {
+      background-position: 300px 0;
+    }
+  }
+  

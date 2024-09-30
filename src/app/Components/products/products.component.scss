@@ -1,0 +1,46 @@
+.search input{
+    padding: 10px 20px;
+    width: 300px;
+    box-shadow: none;
+
+}
+
+
+.BtnPagination {
+    margin: 0 5px;
+  }
+  
+  .current-page {
+    margin: 0 5px;
+    cursor: pointer;
+  }
+  
+  .NumpageActive {
+    font-weight: bold;
+  }
+  
+  .NumpageNotActive {
+    color: #6c757d;
+  }
+  
+  .limit-selection {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+  }
+  
+  .limit-selection label {
+    margin-right: 10px;
+  }
+  .pagination button{
+    padding: 10px 20px;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    margin: 0 10px;
+    border-radius: 10px;
+    color: black;
+    font-weight: 800;
+    background-color: #e0e0e0;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+  }
